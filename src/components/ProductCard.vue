@@ -112,7 +112,7 @@ const reviewCount = computed(() => props.product.reviews?.length || 0);
       </Badge>
       <Badge
         v-if="product.stock === 0"
-        type="out"
+        type="outOfStock"
         size="lg"
         class="absolute inset-0 m-auto w-fit h-fit"
       >

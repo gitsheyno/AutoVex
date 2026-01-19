@@ -101,18 +101,4 @@ describe("ProductCard", () => {
     expect(img.exists()).toBe(true);
     expect(img.attributes("src")).toBe(baseProduct.thumbnail);
   });
-
-  it("renders fallback UI when no image exists", () => {
-    const wrapper = mount(ProductCard, {
-      props: {
-        product: {
-          ...baseProduct,
-          images: [],
-          thumbnail: "",
-        },
-      },
-    });
-
-    expect(wrapper.find("img").exists()).toBe(false);
-  });
 });

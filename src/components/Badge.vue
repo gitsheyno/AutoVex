@@ -8,7 +8,7 @@
  */
 import { computed } from "vue";
 
-type BadgeType = "discount" | "limited" | "out";
+type BadgeType = "discount" | "limited" | "outOfStock";
 type BadgeSize = "sm" | "lg";
 
 const props = withDefaults(
@@ -26,7 +26,7 @@ const base = "inline-flex items-center font-bold rounded-md";
 const typeStyles: Record<BadgeType, string> = {
   discount: "bg-red-600 text-white",
   limited: "bg-amber-500 text-white",
-  out: "bg-white/95 text-red-700 ring-1 ring-red-200",
+  outOfStock: "bg-white/95 text-red-700 ring-1 ring-red-200",
 };
 
 const sizeStyles: Record<BadgeSize, string> = {

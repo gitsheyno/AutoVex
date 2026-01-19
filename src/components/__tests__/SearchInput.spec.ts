@@ -13,7 +13,9 @@ describe("SearchInput", () => {
   });
 
   it("emits update:modelValue on input", async () => {
-    const wrapper = mount(SearchInput);
+    const wrapper = mount(SearchInput, {
+      props: { modelValue: "" },
+    });
 
     const input = wrapper.find("input");
     await input.setValue("hello");

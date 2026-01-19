@@ -38,7 +38,7 @@ export const DiscountSmall: Story = {
 
 export const OutofStock: Story = {
   args: {
-    type: "out",
+    type: "outOfStock",
     size: "lg",
     default: "Out of Stock",
   },

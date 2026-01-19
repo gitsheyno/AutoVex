@@ -2,7 +2,7 @@
 
 This project was developed as a **frontend technical assignment for AutoVex**.
 
-It demonstrates a production-oriented product listing implementation using **Vue 3**, **TypeScript**, and **Tailwind CSS**, with an emphasis on clean architecture, reusable components, accessibility, and maintainable frontend patterns.
+It demonstrates a production-oriented product listing implementation using **Vue 3**, **TypeScript**, and **Tailwind CSS**, with an emphasis on UX best practices, accessibility, reusable UI components, modular logic, and maintainable frontend patterns.
 
 ---
 

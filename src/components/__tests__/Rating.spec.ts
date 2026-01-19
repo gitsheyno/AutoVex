@@ -22,7 +22,7 @@ describe("Rating", () => {
     expect(wrapper.attributes("aria-label")).toContain("out of 10 stars");
   });
 
-  it("clamps rating in aria-label if you use safeRating (if present)", () => {
+  it("clamps rating in aria-label", () => {
     const wrapper = mount(Rating, {
       props: { rating: 999, maxStars: 5 },
     });
