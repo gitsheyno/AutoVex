@@ -190,5 +190,3 @@ const reviewCount = computed(() => props.product.reviews?.length || 0);
     </div>
   </article>
 </template>
-
-<style scoped></style>

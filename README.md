@@ -1,5 +1,100 @@
-# Vue 3 + TypeScript + Vite
+# Product Listing – AutoVex Assignment
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+This project was developed as a **frontend technical assignment for AutoVex**.
 
-Learn more about the recommended Project Setup and IDE Support in the [Vue Docs TypeScript Guide](https://vuejs.org/guide/typescript/overview.html#project-setup).
+It demonstrates a production-oriented product listing implementation using **Vue 3**, **TypeScript**, and **Tailwind CSS**, with an emphasis on clean architecture, reusable components, accessibility, and maintainable frontend patterns.
+
+---
+
+## Features
+
+- Product list fetched from API
+- Search with debounced requests
+- Pagination with accessible controls
+- Product cards with:
+  - Discount badge (shown only for discounts ≥ 5%)
+  - Limited stock indicator
+  - Out-of-stock state with disabled actions
+- Reusable UI components:
+  - Button
+  - Badge
+  - Pagination
+  - Rating
+  - Price
+  - SearchInput
+- Storybook documentation for isolated component development
+- Accessibility considerations:
+  - Proper labels
+  - ARIA attributes
+  - Keyboard-friendly interactions
+
+---
+
+## Architecture Notes
+
+- Components are separated into **stateless UI components** and **stateful container components**
+- API calls are isolated in service functions
+- Shared configuration values are centralized
+- Visual states (discount, limited, out of stock) are expressed semantically
+- No hardcoded API URLs (Vite proxy used for local development)
+
+---
+
+## Possible Improvements
+
+The following enhancements could be added if the project were to be extended further:
+
+- Introduce global state management using **Pinia** (e.g. cart, filters, shared UI state)
+- Add category-based filtering with a dropdown selector
+- Implement a dedicated **product details page**
+- Add a reusable **toast/notification system** for user feedback
+- Implement a real **shopping cart flow** (add/remove items, quantity management)
+
+---
+
+## Tech Stack
+
+- Vue 3 (Composition API)
+- TypeScript
+- Tailwind CSS
+- Vite
+- Storybook (Docs, A11y, Vitest)
+
+---
+
+## Requirements
+
+- Node.js ≥ 18
+- npm
+
+---
+
+## Installation
+
+```bash
+npm install
+```
+
+## Run
+
+```bash
+npm run dev
+```
+
+## Run Tests
+
+```bash
+npm run test
+```
+
+## Run Storybook
+
+```bash
+npm run storybook
+```
+
+## Run Type Checking
+
+```bash
+npm run typecheck
+```
