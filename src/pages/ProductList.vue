@@ -18,7 +18,7 @@
  * between API services and UI components.
  */
 
-import { computed, onMounted, ref, watch } from "vue";
+import { computed, onMounted, onUnmounted, ref, watch } from "vue";
 import ProductCard from "../components/ProductCard.vue";
 import SearchHeader from "../components/SearchHeader.vue";
 import Skleton from "../components/Skleton.vue";
@@ -162,6 +162,15 @@ watch(query, () => {
 
 onMounted(() => {
   fetchData();
+});
+
+onUnmounted(() => {
+  if (debounceTimer) {
+    clearTimeout(debounceTimer);
+  }
+  if (controller) {
+    controller.abort();
+  }
 });
 </script>
 <template>
