@@ -65,7 +65,7 @@ const reviewCount = computed(() => props.product.reviews?.length || 0);
 <template>
   <article
     v-if="variant === 'default'"
-    class="product-card group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
+    class="group bg-white rounded-lg shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden"
   >
     <div class="relative bg-slate-100 aspect-[4/3] sm:aspect-[3/2]">
       <img
@@ -191,22 +191,4 @@ const reviewCount = computed(() => props.product.reviews?.length || 0);
   </article>
 </template>
 
-<style scoped>
-.product-card {
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.line-clamp-1 {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-
-.line-clamp-2 {
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
-}
-</style>
+<style scoped></style>

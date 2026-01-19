@@ -25,3 +25,10 @@ export type Product = {
     date: string;
   }>;
 };
+
+export type ProductsSearchResponse = {
+  products: Product[];
+  total: number;
+  skip: number;
+  limit: number;
+};
