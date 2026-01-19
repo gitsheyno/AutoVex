@@ -1,7 +1,10 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Badge from "./components/Badge.vue";
+</script>
 
 <template>
   <h1 class="text-blue-700">Hello AutoVex</h1>
+  <Badge type="discount">HEllo</Badge>
 </template>
 
 <style scoped>

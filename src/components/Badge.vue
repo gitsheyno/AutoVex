@@ -1,0 +1,46 @@
+<script setup lang="ts">
+/**
+ * Badge
+ *
+ * A small status indicator used to highlight product states such as
+ * discount, limited stock, or out-of-stock.
+ *
+ */
+import { computed } from "vue";
+
+type BadgeType = "discount" | "limited" | "out";
+type BadgeSize = "sm" | "lg";
+
+const props = withDefaults(
+  defineProps<{
+    type: BadgeType;
+    size?: BadgeSize;
+  }>(),
+  {
+    size: "sm",
+  }
+);
+
+const base = "inline-flex items-center font-bold rounded-md";
+
+const typeStyles: Record<BadgeType, string> = {
+  discount: "bg-red-600 text-white",
+  limited: "bg-amber-500 text-white",
+  out: "bg-white/95 text-red-700 ring-1 ring-red-200",
+};
+
+const sizeStyles: Record<BadgeSize, string> = {
+  sm: "text-xs px-2.5 py-1",
+  lg: "text-sm px-4 py-2",
+};
+
+const classes = computed(
+  () => `${base} ${typeStyles[props.type]} ${sizeStyles[props.size]}`
+);
+</script>
+
+<template>
+  <span :class="classes">
+    <slot />
+  </span>
+</template>

@@ -1,22 +1,23 @@
-import type { Meta, StoryObj } from '@storybook/vue3-vite';
+import type { Meta, StoryObj } from "@storybook/vue3-vite";
+import { fn } from "storybook/test";
+import Button from "../components/Button.vue";
 
-import { fn } from 'storybook/test';
-
-import Button from './Button.vue';
-
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories
 const meta = {
-  title: 'Example/Button',
+  title: "Components/Button",
   component: Button,
-  // This component will have an automatically generated docsPage entry: https://storybook.js.org/docs/writing-docs/autodocs
-  tags: ['autodocs'],
+  tags: ["autodocs"],
   argTypes: {
-    size: { control: 'select', options: ['small', 'medium', 'large'] },
-    backgroundColor: { control: 'color' },
+    variant: { control: "select", options: ["primary", "secondary", "ghost"] },
+    size: { control: "select", options: ["sm", "md"] },
+    disabled: { control: "boolean" },
+    loading: { control: "boolean" },
+    type: { control: "select", options: ["button", "submit", "reset"] },
   },
   args: {
-    primary: false,
-    // Use `fn` to spy on the onClick arg, which will appear in the actions panel once invoked: https://storybook.js.org/docs/essentials/actions#story-args
+    variant: "secondary",
+    size: "md",
+    disabled: false,
+    loading: false,
     onClick: fn(),
   },
 } satisfies Meta<typeof Button>;
@@ -24,30 +25,56 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const AddToCart: Story = {
+  args: { variant: "primary" },
+  render: (args) => ({
+    components: { Button },
+    setup: () => ({ args }),
+    template: `<Button v-bind="args">Add to Cart</Button>`,
+  }),
+};
+
 export const Primary: Story = {
-  args: {
-    primary: true,
-    label: 'Button',
-  },
+  args: { variant: "primary" },
+  render: (args) => ({
+    components: { Button },
+    setup: () => ({ args }),
+    template: `<Button v-bind="args">Button</Button>`,
+  }),
 };
 
 export const Secondary: Story = {
-  args: {
-    primary: false,
-    label: 'Button',
-  },
+  args: { variant: "secondary" },
+  render: (args) => ({
+    components: { Button },
+    setup: () => ({ args }),
+    template: `<Button v-bind="args">Button</Button>`,
+  }),
 };
 
-export const Large: Story = {
-  args: {
-    label: 'Button',
-    size: 'large',
-  },
+export const Ghost: Story = {
+  args: { variant: "ghost" },
+  render: (args) => ({
+    components: { Button },
+    setup: () => ({ args }),
+    template: `<Button v-bind="args">Button</Button>`,
+  }),
 };
 
-export const Small: Story = {
-  args: {
-    label: 'Button',
-    size: 'small',
-  },
+export const Loading: Story = {
+  args: { variant: "primary", loading: true },
+  render: (args) => ({
+    components: { Button },
+    setup: () => ({ args }),
+    template: `<Button v-bind="args">Button</Button>`,
+  }),
+};
+
+export const Disabled: Story = {
+  args: { disabled: true },
+  render: (args) => ({
+    components: { Button },
+    setup: () => ({ args }),
+    template: `<Button v-bind="args">Button</Button>`,
+  }),
 };
