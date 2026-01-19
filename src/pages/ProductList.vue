@@ -127,23 +127,23 @@ const handleQuery = (value: string) => {
   page.value = 1;
 };
 
-const goToPage = (p: number) => {
+const goToPage = async (p: number) => {
   const next = Math.min(Math.max(1, p), totalPages.value);
   if (next === page.value) return;
   page.value = next;
-  void fetchData();
+  await fetchData();
 };
 
-const nextPage = () => {
+const nextPage = async () => {
   if (!canNext.value) return;
   page.value += 1;
-  void fetchData();
+  await fetchData();
 };
 
-const prevPage = () => {
+const prevPage = async () => {
   if (!canPrev.value) return;
   page.value -= 1;
-  void fetchData();
+  await fetchData();
 };
 
 const debounceFetch = (timer = DEFAULT_DELAY) => {
@@ -151,8 +151,8 @@ const debounceFetch = (timer = DEFAULT_DELAY) => {
     window.clearTimeout(debounceTimer);
   }
 
-  debounceTimer = window.setTimeout(() => {
-    void fetchData();
+  debounceTimer = window.setTimeout(async () => {
+    await fetchData();
   }, timer);
 };
 

@@ -14,9 +14,15 @@
  */
 import { ref } from "vue";
 
-const props = defineProps<{
-  modelValue: string;
-}>();
+const props = withDefaults(
+  defineProps<{
+    modelValue: string;
+    placeholder?: string;
+  }>(),
+  {
+    placeholder: "Search products...",
+  }
+);
 
 const emit = defineEmits<{
   (e: "update:modelValue", value: string): void;
@@ -72,8 +78,8 @@ const handleClear = () => {
         "
         @focus="isFocused = true"
         @blur="isFocused = false"
-        placeholder="Search anything..."
-        class="flex-1 w-full bg-transparent text-slate-800 placeholder-slate-400 text-base sm:text-lg font-medium outline-none transition-all duration-200"
+        :placeholder="placeholder"
+        class="flex-1 w-full py-1 bg-transparent text-slate-800 placeholder-slate-400 text-base sm:text-lg font-medium outline-none transition-all duration-200"
       />
 
       <button
