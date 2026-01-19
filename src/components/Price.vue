@@ -30,7 +30,6 @@ const props = withDefaults(
 const hasDiscount = computed(() => {
   return (
     typeof props.discountedPrice === "number" &&
-    props.discountedPrice > 0 &&
     props.discountedPrice < props.price
   );
 });
